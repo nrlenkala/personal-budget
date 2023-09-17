@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <meta name="description" content="Personal budget application">
+     <title>Personal Budget</title>
+     <link rel="stylesheet" href="reset.css">
+     <link rel="stylesheet" href="main.css">
+</head>
+<body>
+     <nav class="menu" role="navigation">
+     <ul> <!-- Changed 'type' attribute to 'ul' -->
+        <li><a href="/" aria-label="Start Page">Homepage</a></li>
+        <li><a href="/about.html" aria-label="Who We Are">About Us</a></li>
+        <li><a href="/signin.html" aria-label="User Sign In">Sign In</a></li>
+        <li><a href="https://google.com" aria-label="Google's Homepage">Visit Google</a></li>
+     </ul>
+     </nav>
+
+     <header class="hero" role="banner">
+     <h1>Personal Budget</h1>
+     <h2>A personal-budget management app</h2>
+     </header>
+
+     <div class="container center">
+     <div class="page-area">
+        <div class="text-box">
+             <h2>Stay on track</h2>
+             <p>
+             Do you know where you are spending your money? If you really stop to track it down,
+             you would get surprised! Proper budget management depends on real data... and this
+             app will help you with that!
+             </p>
+        </div>
+        <div class="text-box">
+             <h2>Alerts</h2>
+             <p>
+             What if your clothing budget ended? You will get an alert. The goal is to never go over the budget.
+             </p>
+        </div>
+        <div class="text-box">
+             <h2>Results</h2>
+             <p>
+             People who stick to a financial plan, budgeting every expense, get out of debt faster!
+             Also, they live happier lives... since they expend without guilt or fear...
+             because they know it is all good and accounted for.
+             </p>
+        </div>
+        <div class="text-box">
+             <h2>Free</h2>
+             <p>
+             <canvas id="myChart" width="400" height="400"></canvas>
+             </p>
+        </div>
+     </div>
+     </div>
+
+     <footer class="bottom">
+     <div class="center" aria-label="Copyright">
+        All rights reserved &copy; Nakshatra Reddy
+     </div>
+     </footer>
+
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.5.0/axios.min.js" integrity="sha512-aoTNnqZcT8B4AmeCFmiSnDlc4Nj/KPaZyB5G7JnOnUEkdNpCZs1LCankiYi01sLTyWy+m2P+W4XM+BuQ3Q4/Dg==" crossorigin="anonymous"></script>
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.min.js" integrity="sha512-7U4rRB8aGAHGVad3u2jiC7GA5/1YhQcQjxKeaVms/bT66i3LVBMRcBI9KwABNWnxOSwulkuSXxZLGuyfvo7V1A==" crossorigin="anonymous"></script>
+     <script>
+     var datasource = {
+        datasets: [
+             {
+             data: [30, 350, 90],
+             backgroundColor: [
+        '#ffcd56',
+        '#ff6384',
+        '#36a2eb',
+        '#fd6b19',
+             ],
+             },
+        ],
+        labels: [
+             'Eat out',
+             'Rent',
+             'Groceries',
+        ],
+     };
+
+     function createChart() {
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var myPieChart = new Chart(ctx, {
+             type: 'pie',
+             data: datasource, // Corrected variable name
+        });
+     }
+
+     createChart();
+     </script>
+</body>
+</html>
