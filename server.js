@@ -5,29 +5,45 @@ const port = 3000;
 app.use('/', express.static('public'));
 
 const budget = {
-    myBudget : 
-    [
-    {
-        title: 'Eat out',
-        budget: 30
-    },
-    {
-        title: 'Rent',
-        budget: 350
-    },
-    {
-        title: 'Groceries',
-        budget: 90
-    },
+    myBudget : [
+        {
+            title: 'Housing',
+            budget: 340
+        },
+        {
+            title: 'Electricity',
+            budget: 133
+        },
+    
+        {
+            title: 'Groceries',
+            budget: 222
+        },
+        {
+            title: 'Transportation',
+            budget: 200
+        },
+        {
+            title: 'Savings',
+            budget: 300
+        },
+        {
+            title: 'Entertainment',
+            budget: 275
+        },
+        {
+            title: 'others',
+            budget: 150
+        },
 ]
 };
 
 app.get('/hello', (req, res) => {
-    res.json('Hello World!');
+    res.send('Hello World!');
 });
 
-app.get('/budget', (req, res) => {
-    res.json(budget);
+app.use('/budget', (req, res) => {
+    res.sendFile("C:\\Users\\nlenkala\\Desktop\\dev\\personal-budget\\server.json");
 });
 
 app.listen(port, () => {
